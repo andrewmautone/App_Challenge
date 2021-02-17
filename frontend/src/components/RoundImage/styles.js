@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 const Styles = styled.div`
     
-    background-color:#0b1116;
+    background-color:#131C25;
    
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:3px;
+    padding:5px;
     div{
     box-shadow: 0px 0px 38px -2px rgba(0,0,0,0.37);
     -webkit-box-shadow: 0px 0px 38px -2px rgba(0,0,0,0.37);
