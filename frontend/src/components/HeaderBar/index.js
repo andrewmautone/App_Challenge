@@ -24,19 +24,19 @@ export default function HeaderBar() {
     return (
         <Styles>
            <div className='topBarBackground'>
-                <img onClick={()=>History.push('/profile')}src={logo} className='logo' />
+                <img onClick={()=>History.push('/profile')}src={logo} style={{width:document.body.clientWidth < 500 && 65}} className='logo' />
                 {context.user?.username ? <div className='profilePic'>
                     <RoundImage size={85} />
                     <div className='profileTopInfos'>
 
-                        <label className='profileName'>{context.user?.username}</label>
+                        <label className='profileName' style={{cursor:'pointer'}} onClick={()=>History.push('/profile')}>{context.user?.username}</label>
                         <div className='exitAndIcons'>
                             <div className='iconsContainer'>
 
                         {Object.keys(context.user?.connections).map(elm =>
                             
   
-                            <img src={images[elm]} />
+                            <img onClick={()=>window.open(context.user?.connections[elm].url,'_blank')} src={images[elm]} />
 
                         ) 
                       

@@ -20,9 +20,8 @@ export default function Profile() {
         BattleNet: battlenet,
         Origin: origin,
         Riot: riot
-
-
     }
+    
     const params = useParams();
     const History = useHistory();
     const [editingBio, setEditingBio] = useState(false);

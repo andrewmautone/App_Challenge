@@ -48,7 +48,10 @@ import styled from 'styled-components';
     }
     .logo{
       margin-left:25px;
-      height:60%;
+      margin-right:25px;
+  
+      object-fit: contain;
+
     cursor: pointer;
       
     }

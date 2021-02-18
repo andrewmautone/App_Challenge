@@ -6,6 +6,7 @@ const cors = require('cors');
 const UserController = require('./controllers/UserController');
 const SessionController = require('./controllers/SessionController');
 const ConnectionTypesController = require('./controllers/ConnectionTypesController');
+const ConnectionController = require('./controllers/ConnectionController');
 const authMiddleware = require("./middleware/auth")
 
 app.use(bodyParser.json());
@@ -25,6 +26,11 @@ app.get('/users/:username',UserController.index);
 app.get('/users',authMiddleware,UserController.auth);
 app.put('/users/:id',authMiddleware,UserController.update);
 app.post('/users',UserController.store);
+
+//Connections Route
+app.post('/connection/add/:id',authMiddleware,ConnectionController.add);
+app.post('/connection/remove/:id',authMiddleware,ConnectionController.remove);
+
 
 //Session Route
 app.post('/session',SessionController.login);

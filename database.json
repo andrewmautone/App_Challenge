@@ -20,10 +20,15 @@
       "username": "Teste",
       "bio": "Testando perfil",
       "connections": {
-        "Steam": {
-          "name": "Steam",
-          "id": 1,
-          "connected": true
+        "Riot": {
+          "name": "Riot",
+          "url": "https://www.riotgames.com/",
+          "id": 4
+        },
+        "Origin": {
+          "name": "Origin",
+          "url": "https://www.origin.com/",
+          "id": 3
         }
       },
       "id": 2
@@ -38,6 +43,16 @@
           "name": "Riot",
           "url": "https://www.riotgames.com/",
           "id": 4
+        },
+        "Origin": {
+          "name": "Origin",
+          "url": "https://www.origin.com/",
+          "id": 3
+        },
+        "BattleNet": {
+          "name": "BattleNet",
+          "url": "https://www.blizzard.com/",
+          "id": 2
         }
       },
       "id": 3
@@ -54,7 +69,7 @@
       "email": "firipin@firipin.com",
       "password": "$2b$12$7iKA7m.t8bHWKaNOWeSU7./oouCJFEMTeg11LuzvFL8q4qlWQ7cMC",
       "username": "firipin",
-      "bio": "",
+      "bio": "Vem quente que hoje eu estou ferven",
       "connections": {},
       "id": 5
     }

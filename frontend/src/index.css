@@ -36,6 +36,8 @@ code {
     monospace;
 }
 html, body, #root, .App {
-  height: 100%;
-  width: 100%;
+  display: flex;
+  flex:1;
+  min-height: 100vh;
+  min-width: 100vw;
 }
