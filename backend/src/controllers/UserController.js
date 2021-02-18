@@ -19,7 +19,7 @@ class UserController {
          const newUser =  await api.post('/users',{...userData,password:await bcrypt.hash(userData.password,12)})
          const token = jwt.sign({id:newUser.data.id,username:newUser.data.username},jwtConfig.secret,jwtConfig.options)
 
-         return res.status(200).send({...newUser.data,email:newUser.email.toLowerCase(),password:undefined,token})
+         return res.status(200).send({...newUser.data,email:newUser.data.email.toLowerCase(),password:undefined,token})
          }
          catch(err){
 
