@@ -15,7 +15,7 @@ class SessionController {
 
       
 
-        const {data} = await api.get('/users', { params: { email:body.email } });
+        const {data} = await api.get('/users', { params: { email:body.email.toLowerCase() } });
 
         if(data.length <= 0)
         return res.status(401).send(helper.createError('Your email or password is invalid'));

@@ -9,7 +9,7 @@ class UserController {
     store = async (req, res) => {
         const body = req.body;
 
-        const {data} = await api.get('/users', { params: { email:body.email } });
+        const {data} = await api.get('/users', { params: { email:body.email.toLowerCase() } });
         
         if(data.length  > 0)
          return res.status(400).send(helper.createError('Email already in use'))
@@ -19,7 +19,7 @@ class UserController {
          const newUser =  await api.post('/users',{...userData,password:await bcrypt.hash(userData.password,12)})
          const token = jwt.sign({id:newUser.data.id,username:newUser.data.username},jwtConfig.secret,jwtConfig.options)
 
-         return res.status(200).send({...newUser.data,password:undefined,token})
+         return res.status(200).send({...newUser.data,email:newUser.email.toLowerCase(),password:undefined,token})
          }
          catch(err){
 

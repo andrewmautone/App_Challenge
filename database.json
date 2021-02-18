@@ -1,5 +1,30 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "andrew.mautone@gmail.com",
+      "password": "$2b$12$KRL6BDBkCMSrBoaJqZsNsOKmDGbKDsxnTDVqsvewaH5DbL7XL6iGy",
+      "username": "Andrewmautone",
+      "bio": "Minha bio !",
+      "connections": {
+        "Origin": {
+          "name": "Origin",
+          "url": "https://www.origin.com/",
+          "id": 3
+        },
+        "Riot": {
+          "name": "Riot",
+          "url": "https://www.riotgames.com/",
+          "id": 4
+        },
+        "BattleNet": {
+          "name": "BattleNet",
+          "url": "https://www.blizzard.com/",
+          "id": 2
+        }
+      },
+      "id": 1
+    }
+  ],
   "connectionTypes": [
     {
       "name": "Steam",

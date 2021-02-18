@@ -11,7 +11,8 @@
     ]
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start":"node src/index.js"
   },
 
   "keywords": [],
