@@ -11,8 +11,8 @@ import {
 const Styles = styled.div`
   flex:1;
   display:flex;
-  width:100vw;
-  height:100vh;
+  width:100%;
+  height:100%;
  background-color:#131C25;
 
 
@@ -24,19 +24,19 @@ function App() {
     <Router>
       <Styles>
         <Switch>
-        <Route exact path='/'>
+          <Route exact path='/'>
             <Login />
           </Route>
-        <Route exact path='/login'>
+          <Route exact path='/login'>
             <Login />
           </Route>
-          <Route exact path='/profile'>
+          <Route exact path='/profile/:username'>
             <Profile />
           </Route>
           <Route exact path='/register'>
             <Register />
           </Route>
-         
+
         </Switch>
       </Styles>
 

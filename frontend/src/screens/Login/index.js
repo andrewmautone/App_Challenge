@@ -29,6 +29,7 @@ export default function Login() {
                     <label className='buttonSignup' onClick={()=>History.push('/register')}>Don't have an account? Sign-up</label>
                    
                 </div>
+               
             </Card>
         </Styles>
     );

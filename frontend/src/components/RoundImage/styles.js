@@ -7,7 +7,7 @@ const Styles = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:5px;
+    padding:2px;
     div{
     box-shadow: 0px 0px 38px -2px rgba(0,0,0,0.37);
     -webkit-box-shadow: 0px 0px 38px -2px rgba(0,0,0,0.37);
