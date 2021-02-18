@@ -1,5 +1,5 @@
 # WebApp + Api
-Antes de mais nada, você precisa instalar uma dependência global para executar a API que irá consumir:
+Antes de mais nada, você precisa instalar uma dependência global para executar a API que o backend irá consumir como database:
 ```sh
 npm install -g json-server
 ```
