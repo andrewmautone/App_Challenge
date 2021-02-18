@@ -20,13 +20,14 @@ const style = styled.div`
     align-self:center;
  
     .connectionsContainer{
-align-items:center;
-display:flex;
-flex-direction:row;
-flex-wrap:wrap;
-width:80%;
-
-
+    align-items:center;
+    display:flex;
+    max-width:90%;
+    justify-content:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+    
+   
 }
 
     div{
@@ -72,7 +73,7 @@ width:80%;
       p{
         font-size:15px;
        
-        max-height:15px;
+        max-height:20px;
         overflow: hidden;
         text-overflow: ellipsis;
         flex:1;
@@ -112,6 +113,7 @@ width:80%;
     display:flex;
 
     .profileName{
+
       color:#fff;
       font-family:'Montserrat';
       font-size:25px;
@@ -148,7 +150,7 @@ width:80%;
       
     }
     .profileTopInfos{
-
+      min-width:150px;
       .iconsContainer{
         img{
           cursor: pointer;

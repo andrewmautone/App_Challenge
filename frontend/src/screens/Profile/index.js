@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Styles from './styles';
 import logo from '../../images/logo.png'
 import steam from '../../images/steam.png'
@@ -8,74 +8,111 @@ import riot from '../../images/riot.png'
 import RoundImage from '../../components/RoundImage';
 import Button from '../../components/Button';
 import ConnectionCard from '../../components/ConnectionCard';
-import { useHistory } from "react-router-dom";
+import HeaderBar from '../../components/HeaderBar';
+import { useHistory, useParams } from "react-router-dom";
 import { FaPen } from "react-icons/fa";
-
-
+import api from '../../services/api';
+import { Context } from "../../context/mainContext";
 
 export default function Profile() {
-    const History = useHistory();
-    const [email, setEmail] = useState('');
-    const [editingBio, setEditingBio] = useState(false);
-    const [bio, setBio] = useState('');
+    const images = {
+        Steam: steam,
+        BattleNet: battlenet,
+        Origin: origin,
+        Riot: riot
 
+
+    }
+    const params = useParams();
+    const History = useHistory();
+    const [editingBio, setEditingBio] = useState(false);
+    const [profile, setProfile] = useState({});
+    const [bio, setBio] = useState('');
+    const context = useContext(Context)
+
+
+    const editBio = async () => {
+
+        setEditingBio(false)
+        const response = await api.put('/users/' + profile.id, { bio })
+        setProfile({ ...profile, bio: response.data.bio })
+
+    }
+    const getUserInfo = async () => {
+
+        try {
+            const response = await api.get('/users/' + params.username)
+            if ((Object.keys(response.data) == 0))
+                return History.push('/profile')
+            setProfile(response.data)
+        }
+        catch {
+
+
+        }
+
+    }
+    useEffect(() => {
+        getUserInfo();
+
+    }, [])
 
     return (
         <Styles>
-            <div className='topBarBackground'>
-                <img src={logo} className='logo' />
-                <div className='profilePic'>
-                    <RoundImage size={85} />
-                    <div className='profileTopInfos'>
-
-                        <label className='profileName'>Andrew Mautone</label>
-                        <div className='exitAndIcons'>
-                            <div className='iconsContainer'>
-                                <img src={steam} />
-                                <img src={battlenet} />
-                                <img src={origin} />
-                                <img src={riot} />
-                            </div>
-
-                            <label className='exitLabel' onClick={() => History.push('/login')}>Sair</label>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
+            <HeaderBar />
 
             <div className='contentPlace'>
                 <div>
                     <RoundImage size={170} />
-                    <label className='profileName'>Andrew Mautone</label>
+                    <label className='profileName'>{params.username}</label>
                     {!editingBio ?
                         <div className='profileBioContainer'>
-                            <p>{bio}</p>
+                            <p>{profile.bio}</p>
 
-                            <FaPen color={'white'} size={10} onClick={() => setEditingBio(true)} />
+                            {params.username == context.user?.username && <FaPen color={'white'} size={10} onClick={() => setEditingBio(true)} />}
                         </div>
                         :
                         <div >
                             <textarea maxlength="35" className='textAreaBioEdit' cols={30} value={bio} onChange={(t) => setBio(t.target.value)} />
-                            <Button width='100%' height={30} name='Salvar' onClick={() => setEditingBio(false)} />
+                            <Button width='100%' height={30} name='Salvar' onClick={() => editBio()} />
                         </div>
                     }
                 </div>
                 <div className='breakLine' />
                 <div>
-                    <label className='divisionText'>Conexões</label>
+                    <label className='divisionText'>Connections</label>
                 </div>
-                <div>
-                    <div className='connectionsContainer'>
-                        <ConnectionCard icon={steam} assign={true} name='Steam' />
-                        <ConnectionCard icon={battlenet} assign={false} name='BattleNet' />
-                        <ConnectionCard icon={steam} assign={true} name='Steam' />
-                        <ConnectionCard icon={steam} assign={true} name='Steam' />
-                        <ConnectionCard icon={steam} assign={true} name='Steam' />
+                <div className='connectionsContainer'>
 
-                    </div>
+
+                    { params.username == context.user?.username ?
+
+                        context.connectionTypes?.map((elm) =>
+
+                            <ConnectionCard key={elm.id} id={elm.id}
+                                icon={images[elm.name]}
+                                interact={true}
+                                assign={context.user?.connections[elm.name]}
+                                name={elm.name} />
+
+                        )
+
+                        :     
+                        profile?.connections &&
+                        Object.keys(profile?.connections).map((elm) =>
+
+                        <ConnectionCard key={elm.id} id={elm.id}
+                         url={context.connectionTypes.find(con => con.name == elm).url}
+                            icon={images[elm]}
+                            assign={true}
+                            interact={false}
+                            name={elm} 
+                            />
+                        
+                    )}
+
+
+
                 </div>
 
             </div>

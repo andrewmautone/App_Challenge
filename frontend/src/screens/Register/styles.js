@@ -6,6 +6,10 @@ const Styles = styled.div`
     margin-bottom:25px;
     max-width:80%;
   }
+  .errMessage{
+
+    margin-top:15px;
+  }
  display:flex;
  flex-direction:column;
  flex:1;

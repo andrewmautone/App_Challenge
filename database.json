@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "password": "$2y$12$JtnmzHBJVGkWBgf53L8ir.OWfHnwy7X9DGA/Df3aRu5iNMNc2CVNG",
+      "email": "andrew.mautone@gmail.com",
+      "username": "andrewmautone",
+      "bio": "Bem vindo ao meu perfil",
+      "connections": {
+        "Steam": {
+          "name": "Steam",
+          "id": 1,
+          "connected": true
+        }
+      }
+    },
+    {
+      "email": "andrewmautone@gmail.com",
+      "password": "$2b$12$6sTtU9as.ojUXLrXlF4xk.G7vCwBi8vAprqQLmRBYeEuGzz7KGVuW",
+      "username": "Teste",
+      "bio": "Testando perfil",
+      "connections": {
+        "Steam": {
+          "name": "Steam",
+          "id": 1,
+          "connected": true
+        }
+      },
+      "id": 2
+    },
+    {
+      "email": "admin@prismapro.com.br",
+      "password": "$2b$12$o5kXzG3nR8VPyegNw5LfVuw70jBjOQnAkIUZ5j7nI.qQj10WIt93O",
+      "username": "TesteT",
+      "bio": "Alo",
+      "connections": {
+        "Riot": {
+          "name": "Riot",
+          "url": "https://www.riotgames.com/",
+          "id": 4
+        }
+      },
+      "id": 3
+    },
+    {
+      "email": "teste123@gmail.com",
+      "password": "$2b$12$NO7ID4ciJCJo/g4MzRUcIePebobxwelnErtno9l1.gkwEbUE/RhZa",
+      "username": "Teste123",
+      "bio": "Abc123",
+      "connections": {},
+      "id": 4
+    },
+    {
+      "email": "firipin@firipin.com",
+      "password": "$2b$12$7iKA7m.t8bHWKaNOWeSU7./oouCJFEMTeg11LuzvFL8q4qlWQ7cMC",
+      "username": "firipin",
+      "bio": "",
+      "connections": {},
+      "id": 5
+    }
+  ],
+  "connectionTypes": [
+    {
+      "name": "Steam",
+      "url": "https://store.steampowered.com/",
+      "id": 1
+    },
+    {
+      "name": "BattleNet",
+      "url": "https://www.blizzard.com/",
+      "id": 2
+    },
+    {
+      "name": "Origin",
+      "url": "https://www.origin.com/",
+      "id": 3
+    },
+    {
+      "name": "Riot",
+      "url": "https://www.riotgames.com/",
+      "id": 4
+    }
+  ]
+}
