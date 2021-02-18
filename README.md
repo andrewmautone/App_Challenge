@@ -3,7 +3,7 @@ Antes de mais nada, você precisa instalar uma dependência global para executar
 ```sh
 npm install -g json-server
 ```
-Use o comando 
+Use o comando na pasta raiz do projeto
 ```sh
 json-server -p 3001 database.json
 ```
